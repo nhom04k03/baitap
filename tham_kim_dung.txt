@@ -1,0 +1,76 @@
+﻿-array_walk():
+	áp dụng hàm do người dùng tạo tới mỗi phần tử của mảng
+	cú pháp array_walk ( $array, $funcname [, $parameter] );
+	trong đó $array bắt buộc xác định mảng đầu vào
+	$funcname bắt buộc, đây là hàm được user tạo
+	$parameter tham số tùy ý
+
+Ví dụ:
+	<?php
+	function func($value,$key){
+		echo "Key $key có giá trị $value <br>";
+	}
+	$arr=['one'=>1,'two'=>2,'three'=>3];
+	array_walk($arr, "func");
+?>
+
+	Kết quả: 
+Key one có giá trị 1
+Key two có giá trị 2
+Key three có giá trị 3
+
+- arsort ()
+	Cú pháp arsort($array [, $sort_flag]);
+	Trong đó $array bắt buộc, là tên mảng
+	$sort_flag tùy ý, xác định cách sắp xếp, mặc định là SORT_REGULAR
+	
+	<?php
+	
+	$arr=['orange'=>'cam','apple'=>'táo','banana'=>'chuối'];
+	arsort($arr);
+	print_r($arr);
+?>
+	Array ( [apple] => táo [banana] => chuối [orange] => cam )
+	Hàm này sắp xếp 1 mảng theo cách mà các chỉ mục mảng duy trì mối liên kết với các phần tử mảng mà chúng đã liên kết. Hàm được sử dụng khi sắp xếp mảng liên hợp mà thứ tự phần tử thực sự quan  trọng.
+- create array:
+	tạo mảng
+	các cách tạo mảng:
+		$arr=array(1,2,3,4);
+		$arr=[1,2,3,4];
+		mảng kết hợp $arr=['one'=>1,'two'=>2,'three'=>3];
+		
+<?php
+   $a = ['one' => 1, 'two' => 2, 'three' => 3, 'four' => 4];
+   	 print_r($a);
+?>
+Array
+(
+    [one] => 1
+    [two] => 2
+    [three] => 3
+    [four] => 4
+)
+
+-	Asort()
+Sắp xếp mảng liên hợp theo thứ tự tăng
+Cú pháp tương tự arsort, asort($array [, $sort_flag]);
+SORT_REGULAR – mặc định
+SORT_NUMERIC 
+SORT_STRING 
+SORT_LOCALE_STRING 
+SORT_NATURAL
+Ví dụ:
+<?php
+$age=array("Peter"=>"35","Ben"=>"37","Joe"=>"43");
+asort($age);
+
+foreach($age as $x=>$x_value)
+   {
+   echo "Key=" . $x . ", Value=" . $x_value;
+   echo "<br>";
+   }
+?>
+Kết quả:
+Key=Peter, Value=35
+Key=Ben, Value=37
+Key=Joe, Value=43
